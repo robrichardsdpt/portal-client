@@ -15,7 +15,6 @@
   &:hover {
     cursor: pointer;
     opacity: 0.9;
-    transform: scale(1.05);
   }
 }
 
@@ -48,6 +47,7 @@
 .profile-main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .left-container {
@@ -56,4 +56,14 @@
 
 .right-container {
   padding-bottom: 25px;
+}
+
+.change-password-link {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

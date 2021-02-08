@@ -3,6 +3,7 @@ import './post-profile.styles.scss'
 import Moment from 'react-moment'
 import axios from 'axios'
 import apiUrl from '../../apiConfig.js'
+import noProfileImage from '../../pages/UserProfile/no-photo-avail.jpg'
 
 const PostProfile = ({ user }) => {
   const [posts, setPosts] = useState([])
@@ -15,15 +16,16 @@ const PostProfile = ({ user }) => {
         Authorization: `Token token=${user.token}`
       },
       params: {
-        user: user._id
+        recipient: user._id,
+        owner: 'all'
       }
     })
       .then((res) => setPosts(res.data.posts))
   }, [])
-
+  console.log(posts)
   const postsJSX = posts.map(post => {
     return (
-      <div key={post._id}>
+      <div key={post._id} className='post-individual'>
         <Moment format="MM-DD-YYYY">
           <div>
             {post.createdAt}
@@ -33,7 +35,7 @@ const PostProfile = ({ user }) => {
           {post.text}
         </div>
         <div>
-          -- ${post.owner}
+        -{`${post.owner.firstName} ${post.owner.lastName}`}  {!post.owner.profileImage ? <img src={noProfileImage} alt="image" className="profile-image-thumbnail"/> : <img src={post.owner.profileImage} alt="image" className="profile-image-thumbnail"/>}
         </div>
       </div>
     )
@@ -41,7 +43,9 @@ const PostProfile = ({ user }) => {
 
   return (
     <div className='post-container'>
-      You have been recognized {posts.length} times.
+      <div className='post-container-heading'>
+        You have been recognized {posts.length} times.
+      </div>
       {posts ? postsJSX : 'You have no recognitions yet.'}
     </div>
   )

@@ -1,47 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Alert from 'react-bootstrap/Alert'
 
 import './AutoDismissAlert.scss'
 
-class AutoDismissAlert extends React.Component {
-  constructor (props) {
-    super(props)
+const AutoDismissAlert = ({ variant, heading, message }) => {
+  const [show, setShow] = useState(true)
 
-    this.state = {
-      show: true
-    }
-  }
-
-  componentDidMount () {
-    this.timer = setInterval(() => {
-      this.setState({ show: false })
+  useEffect(() => {
+    setInterval(() => {
+      return setShow(false)
     }, 5000)
-  }
+  }, [])
 
-  componentWillUnmount () {
-    clearInterval(this.timer)
-  }
-
-  handleClose = () => this.setState({ show: false })
-
-  render () {
-    const { variant, heading, message } = this.props
-    return (
-      <Alert
-        dismissible
-        show={this.state.show}
-        variant={variant}
-        onClose={this.handleClose}
-      >
-        <div className="container">
-          <Alert.Heading>
-            {heading}
-          </Alert.Heading>
-          <p className="alert-body">{message}</p>
-        </div>
-      </Alert>
-    )
-  }
+  const handleClose = () => setShow(false)
+  return (
+    <Alert
+      dismissible
+      show={show}
+      variant={variant}
+      onClose={handleClose}
+    >
+      <div className="container">
+        <Alert.Heading>
+          {heading}
+        </Alert.Heading>
+        <p className="alert-body">{message}</p>
+      </div>
+    </Alert>
+  )
 }
 
 export default AutoDismissAlert

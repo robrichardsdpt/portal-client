@@ -5,7 +5,26 @@
   border: gray 2px solid;
   box-shadow: 10px 10px 10px silver;
   overflow: scroll;
-  margin: 0 auto;
-  background: lightcyan;
+  background: navy;
   height: auto;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+.post-container-heading {
+  background: whitesmoke;
+  font-weight: bolder;
+}
+
+.profile-image-thumbnail {
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px;
+  box-shadow: 2px 2px 2px silver;
+}
+
+.post-individual {
+  border-radius: 5px;
+  background-color: lightgoldenrodyellow;
+  margin: 10px;
+  padding: 20px;
 }

@@ -63,13 +63,14 @@ const Home = (props) => {
 
   const messages = messageArray.map((messageObj) => {
     return (
-      <div key={messageObj._id}>{messageObj.name}:  {messageObj.text}<br/></div>
+      props.user.email.includes(messageObj.name) ? <div key={messageObj._id}><span className='chat-user-self'>{messageObj.name}:</span>  {messageObj.text}<br/></div>
+        : <div key={messageObj._id}><span className='chat-user-other'>{messageObj.name}:</span>  {messageObj.text}<br/></div>
     )
   })
 
-  const users = userArray.map((user) => {
+  const users = userArray.map((chatUser) => {
     return (
-      <div key={user}>{user}<br/></div>
+      props.user.email.includes(chatUser) ? <div key={chatUser} className='chat-user-self'>{chatUser}<br/></div> : <div key={chatUser} className='chat-user-other'>{chatUser}<br/></div>
     )
   })
   return (
@@ -82,11 +83,13 @@ const Home = (props) => {
           {users}
         </div>
       </div>
-      <InputEmoji
-        cleanOnEnter
-        onEnter={sendMessage}
-        placeholder='Type a message'
-      />
+      <div className='emoji-input'>
+        <InputEmoji
+          cleanOnEnter
+          onEnter={sendMessage}
+          placeholder='Type a message'
+        />
+      </div>
     </div>
   )
 }

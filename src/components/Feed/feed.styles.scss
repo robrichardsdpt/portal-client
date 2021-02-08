@@ -1,13 +1,54 @@
 .recognition-card {
   padding: 25px;
   border: 2px solid gray;
-  background: lightcyan;
+  box-shadow: 10px 10px 10px silver;
+  background: lightgray;
   border-radius: 5px;
   margin: 20px;
 }
 
 .recognition-card-header {
   padding: 5px;
+  padding-left: 25px;
   border-bottom: 2px silver solid;
-  background: lightgray;
+  background: lightsteelblue;
+}
+
+.recognition-card-text {
+  padding: 5px;
+  padding-left: 25px;
+  border-bottom: 2px silver solid;
+  background: whitesmoke;
+}
+
+.image-holder {
+  margin: 0 auto;
+}
+
+.profile-image-bigger {
+  height: 240px;
+  border-radius: 50%;
+  margin-top: 25px;
+  box-shadow: 10px 10px 10px silver;
+}
+
+.profile-image-thumbnail {
+  height: 40px;
+  border-radius: 50%;
+  margin: 10px;
+  box-shadow: 2px 2px 2px silver;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.user-information {
+  border: gray solid 2px;
+  padding: 0px 50px 50px 50px;
+  box-shadow: 10px 10px 10px silver;
+  margin: 0 auto;
+  background: whitesmoke;
 }

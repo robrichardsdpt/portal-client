@@ -1,24 +1,48 @@
 .chat-container {
-    margin-top: 100px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     height: 600px;
     width: 100%;
-    border: solid gray 3px;
+    border: solid gray 2px;
     display: flex;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px silver;
+    background:radial-gradient(white, rgba(189, 203, 221, 0.2)) ;
 
     .chat-content {
       width: 75%;
       height: 100%;
       overflow: scroll;
-      border-right: 3px gray solid;
+      border-right: 2px gray solid;
       padding: 25px;
     }
 
     .chat-users {
-      padding: 25px;
+      padding: 20px 0px;
       width: 25%;
       overflow: scroll;
       text-align: center;
-      background-color: rgba(102, 153, 244, 0.5)
+      background-color: rgba(102, 153, 244, 0.3);
+
+      .chat-user {
+        padding: 10px;
+      }
     }
+    .chat-user-self {
+      padding: 10px;
+      color: navy;
+    }
+    .chat-user-other {
+      padding: 10px;
+      color: red;
+    }
+}
+
+.emoji-input {
+  padding: 10px;
+  background-color: rgba(102, 153, 244, 0.3);
+  border-radius: 10px;
+  border: solid gray 2px;
+  box-shadow: 10px 10px 10px silver;
 }
 
